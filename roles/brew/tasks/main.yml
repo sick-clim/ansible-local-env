@@ -1,0 +1,31 @@
+---
+- name: Install dependencies of Linuxbrew
+  become: true
+  apt: 
+    name: "{{ packages }}" 
+    state: present
+  vars:
+    packages:
+      - curl
+      - file
+      - git
+      - build-essential
+  
+- name: Install Linuxbrew
+  become: false
+  shell: "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)\""
+  register: linuxbrew
+
+- name: Set /etc/profile.d/linuxbrew.sh
+  copy: src=linuxbrew.sh dest=/etc/profile.d/linuxbrew.sh
+
+- name: Install brew packages
+  homebrew: 
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - tmux
+    environment:
+      PATH: "/home/linuxbrew/.linuxbrew/bin"
+

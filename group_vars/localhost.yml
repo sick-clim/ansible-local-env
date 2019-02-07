@@ -1,0 +1,4 @@
+---
+timezone: Asia/Tokyo
+linuxbrew_packages:
+  - name: tmux
