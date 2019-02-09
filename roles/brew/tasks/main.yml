@@ -17,6 +17,7 @@
   register: linuxbrew
 
 - name: Set /etc/profile.d/linuxbrew.sh
+  become: true
   copy: src=linuxbrew.sh dest=/etc/profile.d/linuxbrew.sh
 
 - name: Install brew packages
@@ -26,6 +27,13 @@
   vars:
     packages:
       - tmux
-    environment:
-      PATH: "/home/linuxbrew/.linuxbrew/bin"
+      - ghq
+      - go
+      - fzf
+      - shellcheck
+      - shfmt
+      - jq
+      - translate-shell
+  environment:
+    PATH: "/home/linuxbrew/.linuxbrew/bin:{{ ansible_env.PATH }}"
 
