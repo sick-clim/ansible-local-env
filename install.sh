@@ -9,6 +9,6 @@ fi
 
 git clone https://github.com/sick-clim/ansible-local-env.git $DEV_PATH/src/github.com/sick-clim/ansible-local-env
 
-cd $DEV_PATH/github.com/sick-clim/src/ansible-local-env
+cd $DEV_PATH/src/github.com/sick-clim/ansible-local-env
 ansible-playbook local-devenv.yml
 
