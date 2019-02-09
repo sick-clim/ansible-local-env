@@ -10,5 +10,5 @@ fi
 git clone https://github.com/sick-clim/ansible-local-env.git $DEV_PATH/src/github.com/sick-clim/ansible-local-env
 
 cd $DEV_PATH/src/github.com/sick-clim/ansible-local-env
-ansible-playbook local-devenv.yml
+ansible-playbook local-devenv.yml --ask-become-pass
 
