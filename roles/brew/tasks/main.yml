@@ -37,3 +37,6 @@
   environment:
     PATH: "/home/linuxbrew/.linuxbrew/bin:{{ ansible_env.PATH }}"
 
+- name: Set ghq root
+  git_config: name=ghq.root scope=global value="~/src"
+
