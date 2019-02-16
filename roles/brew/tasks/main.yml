@@ -34,6 +34,7 @@
       - shfmt
       - jq
       - translate-shell
+      - pipenv
   environment:
     PATH: "/home/linuxbrew/.linuxbrew/bin:{{ ansible_env.PATH }}"
 
